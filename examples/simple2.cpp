@@ -36,5 +36,5 @@ void example_simple2()
     b >> max.in<1>();
 
     g.evaluate();
-    std::cout << "Maximum value: " << max.out<0>() << "\n";
+    std::cout << "Maximum value: " << max.outValue<0>() << "\n";
 }

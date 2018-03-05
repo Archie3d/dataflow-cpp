@@ -19,6 +19,7 @@ void example_simple1()
     auto& add = g.add<float>();
     auto& mul = g.mul<float>();
 
+    // Connect nodes
     a >> add.in<0>();
     b >> add.in<1>();
     add.out<0>() >> mul.in<0>();
@@ -27,7 +28,7 @@ void example_simple1()
     // Capture output, which holds the result
     auto &out = mul.out<0>();
 
-    // Evaluate the graph
+    // Evaluate graph
     g.evaluate();
     std::cout << "Result: " << out() << "\n";
 }

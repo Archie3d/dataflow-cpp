@@ -16,6 +16,7 @@ auto& c = g.variable<float>(3.0f);
 auto& add = g.add<float>();
 auto& mul = g.mul<float>();
 
+// Connect nodes
 a >> add.in<0>();
 b >> add.in<1>();
 add.out<0>() >> mul.in<0>();
@@ -24,12 +25,12 @@ c >> mul.in<1>();
 // Capture output, which holds the result
 auto &out = mul.out<0>();
 
-// Evaluate the graph
+// Evaluate graph
 g.evaluate();
 std::cout << "Result: " << out() << "\n";
 ```
 
-Creating a custom node
+Creating a custom node:
 ```cpp
 // Compute maximum value of two integers
 class Max : public df::Node,
@@ -63,6 +64,6 @@ void example()
     b >> max.in<1>();
 
     g.evaluate();
-    std::cout << "Maximum value: " << max.out<0>() << "\n";
+    std::cout << "Maximum value: " << max.outValue<0>() << "\n";
 }
 ```
